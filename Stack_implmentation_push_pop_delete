@@ -1,0 +1,92 @@
+#include<iostream>
+using namespace std;
+int arr[100],value,top=-1,n=100;
+void push(int value)
+{
+    if(top>=n)
+    {
+        cout<<"Stack Overflow"<<endl;
+
+    }
+    else
+    {
+        top++;
+        arr[top]=value;
+        cout<<"Value Inserted"<<arr[top]<<endl;
+    }
+
+}
+
+void pop()
+{
+    if(top<=-1)
+    {
+        cout<<"Stack UnderFlow"<<endl;
+    }
+    else{
+        cout<<"The poped out element is "<<arr[top]<<endl;
+        top--;
+        
+    }
+}
+void display()
+{
+    if(top>=0)
+    {
+        for(int i=top;i>=0;i--)
+        {
+            cout<<arr[i]<<endl;
+        }
+    }
+    else{
+        cout<<"Stack does not exists"<<endl;
+    }
+}
+
+
+
+int main()
+{
+    int ch;
+    cout<<"1.PUSH A NUMBER"<<endl;
+    cout<<"2.POP A NUMBER"<<endl;
+    cout<<"3. DISPLAY STACK"<<endl;
+    cout<<"4 .EXIT"<<endl;
+    do
+    {
+        cout<<"Enter your choice"<<endl;
+        cin>>ch;
+        switch(ch)
+        {
+            case 1:{
+                cout<<"enter the value you want to enter"<<endl;
+                cin>>value;
+                push(value);
+                break;
+            }
+            case 2:
+            {
+                pop();
+                break;
+            }
+            case 3:
+            {
+                display();
+                break;
+            }
+            case 4:
+            {
+                cout<<"Exiting"<<endl;
+                break;
+            }
+            default: 
+            {
+                cout<<"Invalid Choice"<<endl;
+            }
+
+        }
+
+    }while(ch!=4);
+
+    return 0;
+}
